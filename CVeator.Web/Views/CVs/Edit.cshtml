@@ -1,0 +1,64 @@
+﻿@model CVeator.Entities.PersonalInfo
+
+
+
+<h2>Edit CV</h2>
+
+<div  class="container">
+    <form id="EditForm" >
+        <input type="hidden" name="ID" value="@Model.ID" />
+
+        <label>FirstName</label>
+        <input name="FirstName" value="@Model.FirstName" />
+        <br />
+
+        <label> LastName</label>
+        <input name="LastName" value="@Model.LastName" />
+        <br />
+
+        <label>Address</label>
+        <input name="Address" value="@Model.Address" />
+        <br />
+
+        <label>City</label>
+        <input name="City" value="@Model.City"/>
+        <br />
+
+        <label>ZipCode</label>
+        <input name="ZipCode" value="@Model.ZipCode" />
+        <br />
+
+        <label>Country</label>
+        <input name="Country" value="@Model.Country"/>
+        <br />
+
+        <label>Email</label>
+        <input name="Email" value="@Model.Email"/>
+        <br />
+
+        <label>PhoneNumber</label>
+        <input name="PhoneNumber" value="@Model.PhoneNumber" />
+        <br />
+        <button type="button" id="SaveButton">Save</button>
+
+    </form>
+
+</div>
+<script>
+    $("#SaveButton").click(function () {
+        debugger;
+        $.ajax({
+            url: "@Url.Action("Edit","CVs")",
+            type: "post",
+            data: $("#EditForm").serialize()
+        }).done(function (response) {
+            $("#ListArea").html(response);
+           $("#formModal").modal("toggle");
+        });
+    });
+</script>
+
+
+
+
+

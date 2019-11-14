@@ -1,0 +1,105 @@
+﻿@model List<CVeator.Entities.PersonalInfo>
+
+
+    <div id="ListArea" class="container">
+        <table class="table table-bordered" style="margin-top:10px">
+
+            <thaed>
+                <tr>
+
+                    <th> First Name</th>
+                    <th> Last Name</th>
+                    <th> Address</th>
+                    <th> City</th>
+                    <th> Zip Code</th>
+                    <th> Country</th>
+                    <th> Email</th>
+                    <th> Phone Number</th>
+                    <th> PictureURL</th>
+
+                    <th> Actions</th>
+
+                </tr>
+
+            </thaed>
+
+            <tbody>
+                @foreach (var Info in Model)
+                {
+                    <tr>
+                        <td> @Info.FirstName </td>
+                        <td> @Info.LastName</td>
+                        <td> @Info.Address</td>
+                        <td> @Info.City</td>
+                        <td> @Info.ZipCode</td>
+                        <td> @Info.Country</td>
+                        <td> @Info.Email</td>
+                        <td> @Info.PhoneNumber</td>
+                        <td> @Info.PictureURL</td>
+
+                        <td>
+                            <button class="btn btn-danger DeleteBtn" data-id="@Info.ID">Delete</button>
+                            <button class="btn btn-success EditBtn" data-id="@Info.ID">Edit</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+        <div>
+            <button id="CreateBtn">Create CV</button>
+        </div>
+
+        <div id="ContentArea">
+        </div>
+    </div>
+
+<script>
+    $("#CreateBtn").click(function () {
+        debugger;
+        $.ajax({
+            url: "@Url.Action("Create","CVs")",
+            method: "get"
+        }).done(function (response){
+            $("#ContentArea").html(response);
+
+        });
+    });
+     //$("#CreateBtn").click(function () {
+     //           $.ajax({
+     //               url: "CVs/create/",
+     //               method: "get"
+     //           }).done(function (response) {
+     //               debugger;
+     //               $("#ContentArea").html(response);
+     //           });
+     //       });
+    
+           $(".EditBtn").click(function () {
+               debugger;
+               $.ajax({
+                   url: "CVs/Edit/",
+                   method: "get",
+                   data: {
+                      ID: $(this).attr("data-id")
+                   }
+               }).done(function (response) {
+                   debugger;
+                   $("#ContentArea").html(response);
+               });
+           });
+           $(".DeleteBtn").click(function () {
+               var result = confirm("Are you sure to delete this Auction!");
+               if (result == true) {
+                  $.ajax({
+                     url: "@Url.Action("Delete","CVs")",
+                    method: "post",
+                    data: {
+                          ID: $(this).attr("data-id")
+                    }
+                  }).done(function (response) {
+                      $("#ListArea").html(response);
+                  });
+               }
+           });
+</script>

@@ -1,0 +1,59 @@
+﻿
+
+<h2>Create CV</h2>
+
+<div class="container">
+    <form id="CreateForm">
+        <label>FirstName</label>
+        <input name="FirstName" />
+        <br />
+
+        <label> LastName</label>
+        <input name="LastName" />
+        <br />
+
+        <label>Address</label>
+        <input name="Address" />
+        <br />
+
+        <label>City</label>
+        <input name="City" />
+        <br />
+
+        <label>ZipCode</label>
+        <input name="ZipCode" />
+        <br />
+
+        <label>Country</label>
+        <input name="Country" />
+        <br />
+
+        <label>Email</label>
+        <input name="Email" />
+        <br />
+
+        <label>PhoneNumber</label>
+        <input name="PhoneNumber" />
+        <br />
+        <button type="button" id="SaveButton">Save</button>
+
+    </form>
+
+</div>
+<script>
+    $("#SaveButton").click(function () {
+
+        $.ajax({
+            url: "@Url.Action("Create","CVs")",
+            type: "post",
+            data: $("#CreateForm").serialize()
+        }).done(function (response) {
+            $("#ListArea").html(response);
+           $("#formModal").modal("toggle");
+        });
+    });
+</script>
+
+
+
+

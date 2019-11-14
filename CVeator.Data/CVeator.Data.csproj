@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{434C8166-7B62-4DD6-8976-AAB30082F0DD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CVeator.Data</RootNamespace>
+    <AssemblyName>CVeator.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CVeatorContext.cs" />
+    <Compile Include="Migrations\201910201722472_PersonalInfos.cs" />
+    <Compile Include="Migrations\201910201722472_PersonalInfos.Designer.cs">
+      <DependentUpon>201910201722472_PersonalInfos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910272122591_EdExSkSmTables.cs" />
+    <Compile Include="Migrations\201910272122591_EdExSkSmTables.Designer.cs">
+      <DependentUpon>201910272122591_EdExSkSmTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910272135534_Namemistake.cs" />
+    <Compile Include="Migrations\201910272135534_Namemistake.Designer.cs">
+      <DependentUpon>201910272135534_Namemistake.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910272215103_phonenumberrange.cs" />
+    <Compile Include="Migrations\201910272215103_phonenumberrange.Designer.cs">
+      <DependentUpon>201910272215103_phonenumberrange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911021718408_PictureAdded.cs" />
+    <Compile Include="Migrations\201911021718408_PictureAdded.Designer.cs">
+      <DependentUpon>201911021718408_PictureAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CVeator.Entities\CVeator.Entities.csproj">
+      <Project>{9ED62845-65DB-4476-A3F3-31F8A300F51D}</Project>
+      <Name>CVeator.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201910201722472_PersonalInfos.resx">
+      <DependentUpon>201910201722472_PersonalInfos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910272122591_EdExSkSmTables.resx">
+      <DependentUpon>201910272122591_EdExSkSmTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910272135534_Namemistake.resx">
+      <DependentUpon>201910272135534_Namemistake.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910272215103_phonenumberrange.resx">
+      <DependentUpon>201910272215103_phonenumberrange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911021718408_PictureAdded.resx">
+      <DependentUpon>201911021718408_PictureAdded.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

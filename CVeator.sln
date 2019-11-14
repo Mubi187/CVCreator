@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVeator.Web", "CVeator.Web\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVeator.Entities", "CVeator.Entities\CVeator.Entities.csproj", "{9ED62845-65DB-4476-A3F3-31F8A300F51D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVeator.Data", "CVeator.Data\CVeator.Data.csproj", "{434C8166-7B62-4DD6-8976-AAB30082F0DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVeatorServices", "CVeatorServices\CVeatorServices.csproj", "{6E98A8F2-9D2B-40CF-B0F3-2C6D76C8D234}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{9ED62845-65DB-4476-A3F3-31F8A300F51D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9ED62845-65DB-4476-A3F3-31F8A300F51D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9ED62845-65DB-4476-A3F3-31F8A300F51D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{434C8166-7B62-4DD6-8976-AAB30082F0DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{434C8166-7B62-4DD6-8976-AAB30082F0DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{434C8166-7B62-4DD6-8976-AAB30082F0DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{434C8166-7B62-4DD6-8976-AAB30082F0DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E98A8F2-9D2B-40CF-B0F3-2C6D76C8D234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E98A8F2-9D2B-40CF-B0F3-2C6D76C8D234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E98A8F2-9D2B-40CF-B0F3-2C6D76C8D234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E98A8F2-9D2B-40CF-B0F3-2C6D76C8D234}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
