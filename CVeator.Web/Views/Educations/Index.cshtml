@@ -1,0 +1,101 @@
+﻿
+@model List<CVeator.Entities.Education>
+
+
+<div id="ListArea" class="container">
+    <table class="table table-bordered" style="margin-top:10px">
+
+        <thaed>
+            <tr>
+
+                <th> SchoolName</th>
+                <th> City</th>
+                <th> State</th>
+                <th> Degree</th>
+                <th> FielOfStudy</th>
+                <th> GraduationDate</th>
+
+                <th> Actions</th>
+
+            </tr>
+
+        </thaed>
+
+        <tbody>
+            @foreach (var edu in Model)
+            {
+                <tr>
+                    <td> @edu.SchoolName </td>
+                    <td> @edu.City</td>
+                    <td> @edu.State</td>
+                    <td> @edu.Degree</td>
+                    <td> @edu.FielOfStudy</td>
+                    <td> @edu.GraduationDate</td>
+
+                    <td>
+                        <button class="btn btn-danger DeleteBtn" data-id="@edu.ID">Delete</button>
+                        <button class="btn btn-success EditBtn" data-id="@edu.ID">Edit</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <div>
+        <button id="CreateBtn">Create Education</button>
+    </div>
+
+    <div id="ContentArea">
+    </div>
+</div>
+
+<script>
+    $("#CreateBtn").click(function () {
+        debugger;
+        $.ajax({
+            url: "@Url.Action("Create","Educations")",
+            method: "get"
+        }).done(function (response){
+            $("#ContentArea").html(response);
+
+        });
+    });
+     //$("#CreateBtn").click(function () {
+     //           $.ajax({
+     //               url: "CVs/create/",
+     //               method: "get"
+     //           }).done(function (response) {
+     //               debugger;
+     //               $("#ContentArea").html(response);
+     //           });
+     //       });
+
+           $(".EditBtn").click(function () {
+               debugger;
+               $.ajax({
+                   url: "@Url.Action("Edit","Educations")",
+                   method: "get",
+                   data: {
+                      ID: $(this).attr("data-id")
+                   }
+               }).done(function (response) {
+                   debugger;
+                   $("#ContentArea").html(response);
+               });
+           });
+           $(".DeleteBtn").click(function () {
+               var result = confirm("Are you sure to delete this Auction!");
+               if (result == true) {
+                  $.ajax({
+                     url: "@Url.Action("Delete","Educations")",
+                    method: "post",
+                    data: {
+                          ID: $(this).attr("data-id")
+                    }
+                  }).done(function (response) {
+                      $("#ListArea").html(response);
+                  });
+               }
+           });
+</script>
+

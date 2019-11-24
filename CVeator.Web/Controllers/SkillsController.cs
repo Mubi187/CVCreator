@@ -8,15 +8,13 @@ using CVeatorServices;
 
 namespace CVeator.Web.Controllers
 {
-    public class CVsController : Controller
+    public class SkillsController : Controller
     {
-        CVsServices cvServices = new CVsServices();
+        SkillsServices SkillsServices = new SkillsServices();
         public ActionResult Index()
         {
-            //PersonalInfo personalInfo = new PersonalInfo();
-
-            var AllCVs = cvServices.GetAllCVs();
-            return View(AllCVs);
+            var AllSkill = SkillsServices.GetAllSkill();
+            return View(AllSkill);
         }
         
         public ActionResult Create()
@@ -24,21 +22,21 @@ namespace CVeator.Web.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(PersonalInfo personalInfo)
+        public ActionResult Create(Skill Skill)
         {
-            int id= cvServices.SaveCV(personalInfo);
-            return RedirectToAction("create", "Experiences", new {CvID = id });
+            SkillsServices.SaveSkill(Skill);
+            return RedirectToAction("index");
         }
 
         public ActionResult Edit(int ID)
         {
-           var cv = cvServices.GetCVById(ID);
-            return View(cv);
+           var Skill = SkillsServices.GetSkillById(ID);
+            return View(Skill);
         }
         [HttpPost]
-        public ActionResult Edit(PersonalInfo personalInfo)
+        public ActionResult Edit(Skill Skill)
         {
-            cvServices.UpdateCV(personalInfo);
+            SkillsServices.UpdateSkill(Skill);
             return RedirectToAction("index");
         }
         //public ActionResult Delete(int ID)
@@ -48,9 +46,9 @@ namespace CVeator.Web.Controllers
         //    //return PartialView(auction);
         //}
         [HttpPost]
-        public ActionResult Delete(PersonalInfo personalInfo)
+        public ActionResult Delete(Skill Skill)
         {
-            cvServices.DeleteCV(personalInfo);
+            SkillsServices.DeleteSkill(Skill);
             return RedirectToAction("index");
         }
     }

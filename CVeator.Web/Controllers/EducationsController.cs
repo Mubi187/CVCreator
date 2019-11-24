@@ -8,15 +8,13 @@ using CVeatorServices;
 
 namespace CVeator.Web.Controllers
 {
-    public class CVsController : Controller
+    public class EducationsController : Controller
     {
-        CVsServices cvServices = new CVsServices();
+        EducationsServices EducationsServices = new EducationsServices();
         public ActionResult Index()
         {
-            //PersonalInfo personalInfo = new PersonalInfo();
-
-            var AllCVs = cvServices.GetAllCVs();
-            return View(AllCVs);
+            var AllEducations = EducationsServices.GetAllEducation();
+            return View(AllEducations);
         }
         
         public ActionResult Create()
@@ -24,21 +22,21 @@ namespace CVeator.Web.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(PersonalInfo personalInfo)
+        public ActionResult Create(Education Education)
         {
-            int id= cvServices.SaveCV(personalInfo);
-            return RedirectToAction("create", "Experiences", new {CvID = id });
+            EducationsServices.SaveEducation(Education);
+            return RedirectToAction("index");
         }
 
         public ActionResult Edit(int ID)
         {
-           var cv = cvServices.GetCVById(ID);
-            return View(cv);
+           var Education = EducationsServices.GetEducationById(ID);
+            return View(Education);
         }
         [HttpPost]
-        public ActionResult Edit(PersonalInfo personalInfo)
+        public ActionResult Edit(Education Education)
         {
-            cvServices.UpdateCV(personalInfo);
+            EducationsServices.UpdateEducation(Education);
             return RedirectToAction("index");
         }
         //public ActionResult Delete(int ID)
@@ -48,9 +46,9 @@ namespace CVeator.Web.Controllers
         //    //return PartialView(auction);
         //}
         [HttpPost]
-        public ActionResult Delete(PersonalInfo personalInfo)
+        public ActionResult Delete(Education Education)
         {
-            cvServices.DeleteCV(personalInfo);
+            EducationsServices.DeleteEducation(Education);
             return RedirectToAction("index");
         }
     }

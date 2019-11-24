@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SummeriesServices .cs" />
+    <Compile Include="SkillsServices .cs" />
+    <Compile Include="EducationsServices .cs" />
+    <Compile Include="ExperiencesServices.cs" />
     <Compile Include="CVsServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

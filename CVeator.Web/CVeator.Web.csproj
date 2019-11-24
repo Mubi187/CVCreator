@@ -168,6 +168,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CVsViewController.cs" />
+    <Compile Include="Controllers\EducationsController.cs" />
+    <Compile Include="Controllers\SummeriesController.cs" />
+    <Compile Include="Controllers\SkillsController.cs" />
+    <Compile Include="Controllers\ExperiencesController.cs" />
     <Compile Include="Controllers\CVsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -179,6 +184,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ExperienceViewModel.cs" />
+    <Compile Include="ViewModels\CVViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -239,6 +246,18 @@
     <Content Include="Views\CVs\Index.cshtml" />
     <Content Include="Views\CVs\Create.cshtml" />
     <Content Include="Views\CVs\Edit.cshtml" />
+    <Content Include="Views\Experiences\Index.cshtml" />
+    <Content Include="Views\Experiences\Create.cshtml" />
+    <Content Include="Views\Experiences\Edit.cshtml" />
+    <Content Include="Views\Educations\Index.cshtml" />
+    <Content Include="Views\Educations\Create.cshtml" />
+    <Content Include="Views\Educations\Edit.cshtml" />
+    <Content Include="Views\Skills\Index.cshtml" />
+    <Content Include="Views\Skills\Create.cshtml" />
+    <Content Include="Views\Skills\Edit.cshtml" />
+    <Content Include="Views\Summeries\Index.cshtml" />
+    <Content Include="Views\Summeries\Create.cshtml" />
+    <Content Include="Views\CVsView\CV1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

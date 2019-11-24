@@ -8,36 +8,35 @@ using System.Threading.Tasks;
 
 namespace CVeatorServices
 {
-    public class CVsServices
+    public class SummeriesServices
     {
-        public List<PersonalInfo> GetAllCVs()
+        public List<Summery> GetAllSummeries()
         {
             CVeatorContext context = new CVeatorContext();
-            return context.PersonalInfos.ToList();
+            return context.Summeries.ToList();
         }
-        public int SaveCV(PersonalInfo personalInfo)
+        public void SaveSummery(Summery Summery)
         {
             CVeatorContext context = new CVeatorContext();
-            context.PersonalInfos.Add(personalInfo);
+            context.Summeries.Add(Summery);
             context.SaveChanges();
-            return personalInfo.ID;
         }
 
-        public PersonalInfo GetCVById(int ID)
+        public Summery GetSummeryById(int ID)
         {
             CVeatorContext context = new CVeatorContext();
-            return context.PersonalInfos.Find(ID);
+            return context.Summeries.Find(ID);
         }
-        public void UpdateCV(PersonalInfo personalInfo)
+        public void UpdateSummery(Summery Summery)
         {
             CVeatorContext context = new CVeatorContext();
-            context.Entry(personalInfo).State = System.Data.Entity.EntityState.Modified;
+            context.Entry(Summery).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
         }
-        public void DeleteCV(PersonalInfo personalInfo)
+        public void DeleteSummery(Summery Summery)
         {
             CVeatorContext context = new CVeatorContext();
-            context.Entry(personalInfo).State = System.Data.Entity.EntityState.Deleted;
+            context.Entry(Summery).State = System.Data.Entity.EntityState.Deleted;
             context.SaveChanges();
         }
     }

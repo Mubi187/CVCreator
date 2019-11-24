@@ -1,0 +1,21 @@
+﻿@model CVeator.Web.ViewModels.CVPreview
+
+<h2>CV design 1st</h2>
+
+<div class="container">
+    <h4>@Model.CV.FirstName </h4>
+    <h6>@Model.CV.Country</h6>
+    <h6>@Model.CV.Email</h6>
+    @if (Model.CV.Experiences != null && Model.CV.Experiences.Count > 0)
+    {
+        foreach (var exp in Model.CV.Experiences)
+        {
+            <div>@exp.Employer</div>
+            <div>@exp.JobTitle</div>
+            <div>@exp.EndTime</div>
+            <div>@exp.StartTime</div>
+        }
+    }
+
+
+</div>

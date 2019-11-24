@@ -69,6 +69,22 @@
     <Compile Include="Migrations\201911021718408_PictureAdded.Designer.cs">
       <DependentUpon>201911021718408_PictureAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911232023364_ForeignkeyinExpTab.cs" />
+    <Compile Include="Migrations\201911232023364_ForeignkeyinExpTab.Designer.cs">
+      <DependentUpon>201911232023364_ForeignkeyinExpTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911232034054_ForeignkeyinExpTabReverse.cs" />
+    <Compile Include="Migrations\201911232034054_ForeignkeyinExpTabReverse.Designer.cs">
+      <DependentUpon>201911232034054_ForeignkeyinExpTabReverse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911232058151_ForeinkeyinExpTab.cs" />
+    <Compile Include="Migrations\201911232058151_ForeinkeyinExpTab.Designer.cs">
+      <DependentUpon>201911232058151_ForeinkeyinExpTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911241755435_FKadded.cs" />
+    <Compile Include="Migrations\201911241755435_FKadded.Designer.cs">
+      <DependentUpon>201911241755435_FKadded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -97,6 +113,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911021718408_PictureAdded.resx">
       <DependentUpon>201911021718408_PictureAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911232023364_ForeignkeyinExpTab.resx">
+      <DependentUpon>201911232023364_ForeignkeyinExpTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911232034054_ForeignkeyinExpTabReverse.resx">
+      <DependentUpon>201911232034054_ForeignkeyinExpTabReverse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911232058151_ForeinkeyinExpTab.resx">
+      <DependentUpon>201911232058151_ForeinkeyinExpTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911241755435_FKadded.resx">
+      <DependentUpon>201911241755435_FKadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,70 @@
+﻿@model CVeator.Entities.Experience
+
+
+
+    <h2>Edit Experience</h2>
+
+<div class="container">
+    <form id="EditForm">
+        <input type="hidden" name="ID" class="form-control" value="@Model.ID" />
+
+        <div class="form-group">
+            <label>Employer</label>
+            <input name="Employer" class="form-control" value="@Model.Employer" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label> JobTitle</label>
+            <input name="JobTitle" class="form-control" value="@Model.JobTitle" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            <input name="City" class="form-control" value="@Model.City" />
+            <br /> 
+        </div>
+        <div class="form-group">
+            <label>State</label>
+            <input name="State" class="form-control" value="@Model.State" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label>StartTime</label>
+            <input name="StartTime" class="form-control" value="@Model.StartTime" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label>EndTime</label>
+            <input name="EndTime" class="form-control" value="@Model.EndTime" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <input name="Description" class="form-control" value="@Model.Description" />
+            <br />
+        </div>
+
+        <button type="button" id="SaveButton">Save</button>
+
+    </form>
+
+</div>
+<script>
+    $("#SaveButton").click(function () {
+        debugger;
+        $.ajax({
+            url: "@Url.Action("Edit","Experiences")",
+            type: "post",
+            data: $("#EditForm").serialize()
+        }).done(function (response) {
+            $("#ListArea").html(response);
+           $("#formModal").modal("toggle");
+        });
+    });
+</script>
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+﻿@model CVeator.Entities.Skill
+
+
+
+<h2>Edit Skill</h2>
+
+<div class="container">
+    <form id="EditForm">
+        <input type="hidden" name="ID" class="form-control" value="@Model.ID" />
+
+        <div class="form-group">
+            <label>SkillName</label>
+            <input name="SkillName" class="form-control" value="@Model.SkillName" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label> level</label>
+            <input name="level" class="form-control" value="@Model.level" />
+            <br />
+        </div>
+
+        <button type="button" id="SaveButton">Save</button>
+
+    </form>
+
+</div>
+<script>
+    $("#SaveButton").click(function () {
+        debugger;
+        $.ajax({
+            url: "@Url.Action("Edit","Skills")",
+            type: "post",
+            data: $("#EditForm").serialize()
+        }).done(function (response) {
+            $("#ListArea").html(response);
+           $("#formModal").modal("toggle");
+        });
+    });
+</script>
+
+
+
+
+
+
+

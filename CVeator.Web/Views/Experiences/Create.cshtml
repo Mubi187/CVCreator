@@ -1,0 +1,89 @@
+﻿@model CVeator.Web.ViewModels.ExperienceViewModel
+
+<h2>Create Experience</h2>
+
+<div class="container">
+    <form id="CreateForm">
+        <input type="hidden" name="PersonalInfo_ID" value="@Model.PersonalInfo_ID" />
+        <div class="form-group">
+            <label>Employer</label>
+            <input name="Employer" class="form-control" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label> JobTitle</label>
+            <input name="JobTitle" class="form-control" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            <input name="City" class="form-control" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label>State</label>
+            <input name="State" class="form-control" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label>StartTime</label>
+            <input name="StartTime" class="form-control" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label>EndTime</label>
+            <input name="EndTime" class="form-control" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <input name="Description" class="form-control" />
+            <br />
+        </div>
+
+        <button type="button" id="SaveButton">Save</button>
+
+    </form>
+    <button type="button" id="AddAnother">Add Experience</button>
+
+</div>
+<script>
+    $("#SaveButton").click(function () {
+
+        $.ajax({
+            url: "@Url.Action("Create","Experiences")",
+            type: "post",
+            data: $("#CreateForm").serialize()
+        }).done(function (response) {
+            $("#ListArea").html(response);
+           $("#formModal").modal("toggle");
+        });
+    });
+
+    $("#AddAnother").click(function () {
+        debugger;
+        goto();
+        $.ajax({
+            url: "@Url.Action("Create","Experiences")",
+            type: "get",
+            data: $("#CreateForm").serialize()
+        });
+    });
+
+        function goto() {
+             $.ajax({
+            url: "@Url.Action("Create","Experiences")",
+            type: "post",
+            data: $("#CreateForm").serialize()
+        }).done(function (response) {
+            $("#ListArea").html(response);
+           $("#formModal").modal("toggle");
+        });
+        }
+</script>
+
+
+
+
+
+

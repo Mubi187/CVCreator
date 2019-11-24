@@ -5,43 +5,53 @@
 <h2>Edit CV</h2>
 
 <div  class="container">
-    <form id="EditForm" >
+    <form id="EditForm">
         <input type="hidden" name="ID" value="@Model.ID" />
 
-        <label>FirstName</label>
-        <input name="FirstName" value="@Model.FirstName" />
-        <br />
+        <div class="form-group">
+            <label>FirstName</label>
+            <input name="FirstName" value="@Model.FirstName" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label> LastName</label>
+            <input name="LastName" value="@Model.LastName" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <input name="Address" value="@Model.Address" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label>City</label>
+            <input name="City" value="@Model.City" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label>ZipCode</label>
+            <input name="ZipCode" value="@Model.ZipCode" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label>Country</label>
+            <input name="Country" value="@Model.Country" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input name="Email" value="@Model.Email" />
+            <br />
+        </div>
+        <div class="form-group">
+            <label>PhoneNumber</label>
+            <input name="PhoneNumber" value="@Model.PhoneNumber" />
+            <br />
+        </div>
 
-        <label> LastName</label>
-        <input name="LastName" value="@Model.LastName" />
-        <br />
-
-        <label>Address</label>
-        <input name="Address" value="@Model.Address" />
-        <br />
-
-        <label>City</label>
-        <input name="City" value="@Model.City"/>
-        <br />
-
-        <label>ZipCode</label>
-        <input name="ZipCode" value="@Model.ZipCode" />
-        <br />
-
-        <label>Country</label>
-        <input name="Country" value="@Model.Country"/>
-        <br />
-
-        <label>Email</label>
-        <input name="Email" value="@Model.Email"/>
-        <br />
-
-        <label>PhoneNumber</label>
-        <input name="PhoneNumber" value="@Model.PhoneNumber" />
-        <br />
         <button type="button" id="SaveButton">Save</button>
 
-    </form>
+</form>
 
 </div>
 <script>

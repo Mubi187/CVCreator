@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
+using CVeator.Entities;
 
-namespace CVeator.Entities
+namespace CVeator.Web.ViewModels
 {
-    public class Experience : BaseEntity
+    public class ExperienceViewModel
     {
+
         public String Employer { get; set; }
         public String JobTitle { get; set; }
         public String City { get; set; }
@@ -23,4 +24,5 @@ namespace CVeator.Entities
         [ForeignKey("PersonalInfo_ID")]
         public virtual PersonalInfo personalInfo { get; set; }
     }
+
 }

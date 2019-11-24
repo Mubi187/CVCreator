@@ -1,0 +1,41 @@
+﻿
+
+<h2>Create Summery</h2>
+
+<div class="container">
+    <form id="CreateForm">
+        @*<div class="form-group">
+            <label>Professional Summery</label>
+            <input name="ProfessionalSummery" class="form-control" />
+            <br />
+        </div>*@
+        <div class="form-group shadow-textarea">
+            <label>Professional Summery</label>
+            <textarea name="ProfessionalSummery" class="form-control" placeholder="Write something here..."></textarea>
+        </div>
+        <button type="button" id="SaveButton">Save</button>
+    </form>
+
+
+
+</div>
+<script>
+    $("#SaveButton").click(function () {
+
+        $.ajax({
+            url: "@Url.Action("Create","Summeries")",
+            type: "post",
+            data: $("#CreateForm").serialize()
+        }).done(function (response) {
+            $("#ListArea").html(response);
+           $("#formModal").modal("toggle");
+        });
+    });
+</script>
+
+
+
+
+
+
+

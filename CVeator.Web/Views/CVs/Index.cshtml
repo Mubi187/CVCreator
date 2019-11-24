@@ -78,7 +78,7 @@
            $(".EditBtn").click(function () {
                debugger;
                $.ajax({
-                   url: "CVs/Edit/",
+                   url: "@Url.Action("Edit","CVs")",
                    method: "get",
                    data: {
                       ID: $(this).attr("data-id")

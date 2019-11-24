@@ -1,0 +1,103 @@
+﻿
+@model List<CVeator.Entities.Experience>
+
+
+<div id="ListArea" class="container">
+    <table class="table table-bordered" style="margin-top:10px">
+
+        <thaed>
+            <tr>
+
+                <th> Employer</th>
+                <th> JobTitle</th>
+                <th> City</th>
+                <th> State</th>
+                <th> StartTime</th>
+                <th> EndTime</th>
+                <th> Description</th>
+
+                <th> Actions</th>
+
+            </tr>
+
+        </thaed>
+
+        <tbody>
+            @foreach (var exp in Model)
+            {
+                <tr>
+                    <td> @exp.Employer </td>
+                    <td> @exp.JobTitle</td>
+                    <td> @exp.City</td>
+                    <td> @exp.State</td>
+                    <td> @exp.StartTime</td>
+                    <td> @exp.EndTime</td>
+                    <td> @exp.Description</td>
+
+                    <td>
+                        <button class="btn btn-danger DeleteBtn" data-id="@exp.ID">Delete</button>
+                        <button class="btn btn-success EditBtn" data-id="@exp.ID">Edit</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <div>
+        <button id="CreateBtn">Create Experience</button>
+    </div>
+
+    <div id="ContentArea">
+    </div>
+</div>
+
+<script>
+    $("#CreateBtn").click(function () {
+        debugger;
+        $.ajax({
+            url: "@Url.Action("Create","Experiences")",
+            method: "get"
+        }).done(function (response){
+            $("#ContentArea").html(response);
+
+        });
+    });
+     //$("#CreateBtn").click(function () {
+     //           $.ajax({
+     //               url: "CVs/create/",
+     //               method: "get"
+     //           }).done(function (response) {
+     //               debugger;
+     //               $("#ContentArea").html(response);
+     //           });
+     //       });
+
+           $(".EditBtn").click(function () {
+               debugger;
+               $.ajax({
+                   url: "@Url.Action("Edit","Experiences")",
+                   method: "get",
+                   data: {
+                      ID: $(this).attr("data-id")
+                   }
+               }).done(function (response) {
+                   debugger;
+                   $("#ContentArea").html(response);
+               });
+           });
+           $(".DeleteBtn").click(function () {
+               var result = confirm("Are you sure to delete this Auction!");
+               if (result == true) {
+                  $.ajax({
+                     url: "@Url.Action("Delete","Experiences")",
+                    method: "post",
+                    data: {
+                          ID: $(this).attr("data-id")
+                    }
+                  }).done(function (response) {
+                      $("#ListArea").html(response);
+                  });
+               }
+           });
+</script>
+

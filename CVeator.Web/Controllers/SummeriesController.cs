@@ -8,15 +8,13 @@ using CVeatorServices;
 
 namespace CVeator.Web.Controllers
 {
-    public class CVsController : Controller
+    public class SummeriesController : Controller
     {
-        CVsServices cvServices = new CVsServices();
+        SummeriesServices SummeriesServices = new SummeriesServices();
         public ActionResult Index()
         {
-            //PersonalInfo personalInfo = new PersonalInfo();
-
-            var AllCVs = cvServices.GetAllCVs();
-            return View(AllCVs);
+            var AllSummery = SummeriesServices.GetAllSummeries();
+            return View(AllSummery);
         }
         
         public ActionResult Create()
@@ -24,21 +22,21 @@ namespace CVeator.Web.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(PersonalInfo personalInfo)
+        public ActionResult Create(Summery Summery)
         {
-            int id= cvServices.SaveCV(personalInfo);
-            return RedirectToAction("create", "Experiences", new {CvID = id });
+            SummeriesServices.SaveSummery(Summery);
+            return RedirectToAction("index");
         }
 
         public ActionResult Edit(int ID)
         {
-           var cv = cvServices.GetCVById(ID);
-            return View(cv);
+           var Summery = SummeriesServices.GetSummeryById(ID);
+            return View(Summery);
         }
         [HttpPost]
-        public ActionResult Edit(PersonalInfo personalInfo)
+        public ActionResult Edit(Summery Summery)
         {
-            cvServices.UpdateCV(personalInfo);
+            SummeriesServices.UpdateSummery(Summery);
             return RedirectToAction("index");
         }
         //public ActionResult Delete(int ID)
@@ -48,9 +46,9 @@ namespace CVeator.Web.Controllers
         //    //return PartialView(auction);
         //}
         [HttpPost]
-        public ActionResult Delete(PersonalInfo personalInfo)
+        public ActionResult Delete(Summery Summery)
         {
-            cvServices.DeleteCV(personalInfo);
+            SummeriesServices.DeleteSummery(Summery);
             return RedirectToAction("index");
         }
     }

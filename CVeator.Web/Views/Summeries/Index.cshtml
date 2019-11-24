@@ -1,0 +1,88 @@
+﻿
+@model List<CVeator.Entities.Summery>
+
+
+<div id="ListArea" class="container">
+    <table class="table table-bordered" style="margin-top:10px">
+
+        <thaed>
+            <tr>
+
+                <th> Professional Summery</th>
+
+                <th> Actions</th>
+
+            </tr>
+
+        </thaed>
+
+        <tbody>
+            @foreach (var Summery in Model)
+            {
+                <tr>
+                    <td> @Summery.ProfessionalSummery </td>
+
+                    <td>
+                        <button class="btn btn-danger DeleteBtn" data-id="@Summery.ID">Delete</button>
+                        <button class="btn btn-success EditBtn" data-id="@Summery.ID">Edit</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <div>
+        <button id="CreateBtn">Create Summery</button>
+    </div>
+
+    <div id="ContentArea">
+    </div>
+</div>
+
+<script>
+    $("#CreateBtn").click(function () {
+        $.ajax({
+            url: "@Url.Action("Create","Summeries")",
+            method: "get"
+        }).done(function (response){
+            $("#ContentArea").html(response);
+
+        });
+    });
+     //$("#CreateBtn").click(function () {
+     //           $.ajax({
+     //               url: "CVs/create/",
+     //               method: "get"
+     //           }).done(function (response) {
+     //               debugger;
+     //               $("#ContentArea").html(response);
+     //           });
+     //       });
+
+           $(".EditBtn").click(function () {
+               $.ajax({
+                   url: "@Url.Action("Edit","Summeries")",
+                   method: "get",
+                   data: {
+                      ID: $(this).attr("data-id")
+                   }
+               }).done(function (response) {
+                   $("#ContentArea").html(response);
+               });
+           });
+           $(".DeleteBtn").click(function () {
+               var result = confirm("Are you sure to delete this Auction!");
+               if (result == true) {
+                  $.ajax({
+                     url: "@Url.Action("Delete","Summeries")",
+                    method: "post",
+                    data: {
+                          ID: $(this).attr("data-id")
+                    }
+                  }).done(function (response) {
+                      $("#ListArea").html(response);
+                  });
+               }
+           });
+</script>
+

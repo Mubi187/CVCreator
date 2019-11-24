@@ -8,36 +8,35 @@ using System.Threading.Tasks;
 
 namespace CVeatorServices
 {
-    public class CVsServices
+    public class SkillsServices
     {
-        public List<PersonalInfo> GetAllCVs()
+        public List<Skill> GetAllSkill()
         {
             CVeatorContext context = new CVeatorContext();
-            return context.PersonalInfos.ToList();
+            return context.Skills.ToList();
         }
-        public int SaveCV(PersonalInfo personalInfo)
+        public void SaveSkill(Skill Skill)
         {
             CVeatorContext context = new CVeatorContext();
-            context.PersonalInfos.Add(personalInfo);
+            context.Skills.Add(Skill);
             context.SaveChanges();
-            return personalInfo.ID;
         }
 
-        public PersonalInfo GetCVById(int ID)
+        public Skill GetSkillById(int ID)
         {
             CVeatorContext context = new CVeatorContext();
-            return context.PersonalInfos.Find(ID);
+            return context.Skills.Find(ID);
         }
-        public void UpdateCV(PersonalInfo personalInfo)
+        public void UpdateSkill(Skill Skill)
         {
             CVeatorContext context = new CVeatorContext();
-            context.Entry(personalInfo).State = System.Data.Entity.EntityState.Modified;
+            context.Entry(Skill).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
         }
-        public void DeleteCV(PersonalInfo personalInfo)
+        public void DeleteSkill(Skill Skill)
         {
             CVeatorContext context = new CVeatorContext();
-            context.Entry(personalInfo).State = System.Data.Entity.EntityState.Deleted;
+            context.Entry(Skill).State = System.Data.Entity.EntityState.Deleted;
             context.SaveChanges();
         }
     }

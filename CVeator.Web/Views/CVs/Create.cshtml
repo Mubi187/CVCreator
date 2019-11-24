@@ -4,52 +4,56 @@
 
 <div class="container">
     <form id="CreateForm">
-        <label>FirstName</label>
-        <input name="FirstName" />
-        <br />
+        <div>
+            <div class="form-group">
+                <label>FirstName</label>
+                <input class="form-control" name="FirstName" />
+                <br />
+            </div>
+            <label class="form-group"> LastName</label>
+            <input class="form-control" name="LastName" />
+            <br />
 
-        <label> LastName</label>
-        <input name="LastName" />
-        <br />
+            <label class="form-group">Address</label>
+            <input class="form-control" name="Address" />
+            <br />
 
-        <label>Address</label>
-        <input name="Address" />
-        <br />
+            <label class="form-group">City</label>
+            <input class="form-control" name="City" />
+            <br />
 
-        <label>City</label>
-        <input name="City" />
-        <br />
+            <label class="form-group">ZipCode</label>
+            <input class="form-control" name="ZipCode" />
+            <br />
 
-        <label>ZipCode</label>
-        <input name="ZipCode" />
-        <br />
+            <label class="form-group">Country</label>
+            <input class="form-control" name="Country" />
+            <br />
 
-        <label>Country</label>
-        <input name="Country" />
-        <br />
+            <label class="form-group">Email</label>
+            <input class="form-control" name="Email" />
+            <br />
 
-        <label>Email</label>
-        <input name="Email" />
-        <br />
+            <label class="form-group">PhoneNumber</label>
+            <input class="form-control" name="PhoneNumber" />
+            <br />
+            <button type="button" id="SaveButton">Save</button>
 
-        <label>PhoneNumber</label>
-        <input name="PhoneNumber" />
-        <br />
-        <button type="button" id="SaveButton">Save</button>
+            @*<a id="SaveButton" href="@Url.Action("Create","Experiences")" class="btn btn-default">Next</a>*@
+        </div>
 
     </form>
 
 </div>
 <script>
     $("#SaveButton").click(function () {
-
+        debugger;
         $.ajax({
             url: "@Url.Action("Create","CVs")",
             type: "post",
             data: $("#CreateForm").serialize()
         }).done(function (response) {
-            $("#ListArea").html(response);
-           $("#formModal").modal("toggle");
+           $("#ListArea").html(response);
         });
     });
 </script>
