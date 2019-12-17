@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CVeator.Entities;
+using CVeator.Web.ViewModels;
 using CVeatorServices;
 
 namespace CVeator.Web.Controllers
@@ -17,15 +18,17 @@ namespace CVeator.Web.Controllers
             return View(AllEducations);
         }
         
-        public ActionResult Create()
+        public ActionResult Create(int CvID)
         {
-            return View();
+            EducationViewModel model = new EducationViewModel();
+            model.PersonalInfo_ID = CvID;
+            return View(model);
         }
         [HttpPost]
         public ActionResult Create(Education Education)
         {
             EducationsServices.SaveEducation(Education);
-            return RedirectToAction("index");
+            return RedirectToAction("Create", "Skills", new { CvID = Education.PersonalInfo_ID });
         }
 
         public ActionResult Edit(int ID)

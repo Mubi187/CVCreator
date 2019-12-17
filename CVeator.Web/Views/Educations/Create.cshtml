@@ -3,7 +3,8 @@
 <h2>Create Education</h2>
 
 <div class="container">
-    <form id="CreateForm">
+    <form id="CreateForm" method="post">
+        <input type="hidden" name="PersonalInfo_ID" value="@Model.PersonalInfo_ID" />
         <div class="form-group">
             <label>SchoolName</label>
             <input name="SchoolName" class="form-control" />
@@ -34,14 +35,14 @@
             <input name="GraduationDate" class="form-control" />
             <br />
         </div>
-        <button type="button" id="SaveButton">Save</button>
+        <button type="submit" id="SaveButton">Save</button>
 
         <a href="@Url.Action("Create","Skills")" class="btn btn-default">Next</a>
     </form>
 
 
 </div>
-<script>
+@*<script>
     $("#SaveButton").click(function () {
 
         $.ajax({
@@ -53,7 +54,7 @@
            $("#formModal").modal("toggle");
         });
     });
-</script>
+</script>*@
 
 
 

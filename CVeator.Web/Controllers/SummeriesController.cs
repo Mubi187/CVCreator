@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CVeator.Entities;
+using CVeator.Web.ViewModels;
 using CVeatorServices;
 
 namespace CVeator.Web.Controllers
@@ -16,16 +17,19 @@ namespace CVeator.Web.Controllers
             var AllSummery = SummeriesServices.GetAllSummeries();
             return View(AllSummery);
         }
+
         
-        public ActionResult Create()
+        public ActionResult Create(int CvID)
         {
-            return View();
+            SummeriesViewModel model = new SummeriesViewModel();
+            model.PersonalInfo_ID= CvID;
+            return View(model);
         }
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Create(Summery Summery)
         {
             SummeriesServices.SaveSummery(Summery);
-            return RedirectToAction("index");
+            return RedirectToAction("CV1","CVsView/1");
         }
 
         public ActionResult Edit(int ID)

@@ -1,37 +1,41 @@
-﻿
+﻿@model CVeator.Web.ViewModels.SummeriesViewModel
 
 <h2>Create Summery</h2>
 
 <div class="container">
-    <form id="CreateForm">
-        @*<div class="form-group">
-            <label>Professional Summery</label>
-            <input name="ProfessionalSummery" class="form-control" />
-            <br />
-        </div>*@
-        <div class="form-group shadow-textarea">
-            <label>Professional Summery</label>
-            <textarea name="ProfessionalSummery" class="form-control" placeholder="Write something here..."></textarea>
-        </div>
-        <button type="button" id="SaveButton">Save</button>
+    <form id="CreateForm" method="post">
+        <input type="hidden" name="PersonalInfo_ID" value="@Model.PersonalInfo_ID" />
+        @*<div class="form-group shadow-textarea">
+                <label>Professional Summery</label>
+                <textarea name="ProfessionalSummery" class="form-control" placeholder="Write something here..."></textarea>
+            </div>*@
+        <label>Professional Summery</label>
+        <textarea name="ProfessionalSummery" id="summernote"></textarea>
+        <script>
+            $('#summernote').summernote({
+                placeholder: 'Hello bootstrap 4',
+                tabsize: 3,
+                height: 100
+            });
+        </script>
+        <button type="submit" id="SaveButton">Save</button>
     </form>
 
-
-
 </div>
-<script>
-    $("#SaveButton").click(function () {
 
-        $.ajax({
-            url: "@Url.Action("Create","Summeries")",
-            type: "post",
-            data: $("#CreateForm").serialize()
-        }).done(function (response) {
-            $("#ListArea").html(response);
-           $("#formModal").modal("toggle");
+@*<script>
+        $("#SaveButton").click(function () {
+
+            $.ajax({
+                url: "@Url.Action("Create","Summeries")",
+                type: "post",
+                data: $("#CreateForm").serialize()
+            }).done(function (response) {
+                $("#ListArea").html(response);
+               $("#formModal").modal("toggle");
+            });
         });
-    });
-</script>
+    </script>*@
 
 
 

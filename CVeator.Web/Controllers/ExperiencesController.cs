@@ -23,16 +23,14 @@ namespace CVeator.Web.Controllers
         {
             ExperienceViewModel model = new ExperienceViewModel();
             model.PersonalInfo_ID = CvID;
-
             return View(model);
         }
         [HttpPost]
         public ActionResult Create(Experience Experience)
         
         {
-
             ExperienceServices.SaveExperience(Experience);
-            return View();
+            return RedirectToAction("Create", "Educations",new {CvID = Experience.PersonalInfo_ID });
         }
 
         public ActionResult Edit(int ID)

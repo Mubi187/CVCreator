@@ -3,7 +3,7 @@
 <h2>Create Experience</h2>
 
 <div class="container">
-    <form id="CreateForm">
+    <form id="CreateForm" method="post">
         <input type="hidden" name="PersonalInfo_ID" value="@Model.PersonalInfo_ID" />
         <div class="form-group">
             <label>Employer</label>
@@ -39,16 +39,17 @@
             <label>Description</label>
             <input name="Description" class="form-control" />
             <br />
+
         </div>
 
-        <button type="button" id="SaveButton">Save</button>
-
+        <button type="submit" id="SaveButton">Save</button>
+        <button type="button" id="AddAnother">Add Experience</button>
     </form>
-    <button type="button" id="AddAnother">Add Experience</button>
+    <div id="anotherExperience"></div>
 
 </div>
 <script>
-    $("#SaveButton").click(function () {
+    @*$("#SaveButton").click(function () {
 
         $.ajax({
             url: "@Url.Action("Create","Experiences")",
@@ -56,30 +57,26 @@
             data: $("#CreateForm").serialize()
         }).done(function (response) {
             $("#ListArea").html(response);
-           $("#formModal").modal("toggle");
         });
-    });
+    });*@
 
     $("#AddAnother").click(function () {
         debugger;
-        goto();
         $.ajax({
-            url: "@Url.Action("Create","Experiences")",
-            type: "get",
-            data: $("#CreateForm").serialize()
-        });
-    });
-
-        function goto() {
-             $.ajax({
             url: "@Url.Action("Create","Experiences")",
             type: "post",
             data: $("#CreateForm").serialize()
-        }).done(function (response) {
-            $("#ListArea").html(response);
-           $("#formModal").modal("toggle");
+        }).done(function () {
+            $.ajax({
+                url: "@Url.Action("Create","Experiences")",
+                type: "get",
+                data: $("#CreateForm").serialize()
+            }).done(function (reply) {
+                $("#anotherExperience").html(reply)
+            });
         });
-        }
+    });
+
 </script>
 
 

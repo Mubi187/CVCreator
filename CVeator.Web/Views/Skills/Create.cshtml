@@ -1,9 +1,10 @@
-﻿
+﻿@model CVeator.Web.ViewModels.SkillsViewModel
 
 <h2>Create Skill</h2>
 
 <div class="container">
-    <form id="CreateForm">
+    <form id="CreateForm" method="post">
+        <input type="hidden" name="PersonalInfo_ID" value="@Model.PersonalInfo_ID" />
         <div class="form-group">
             <label>SkillName</label>
             <input name="SkillName" class="form-control" />
@@ -14,14 +15,14 @@
             <input name="level" class="form-control" />
             <br />
         </div>
-        <button type="button" id="SaveButton">Save</button>
+        <button type="submit" id="SaveButton">Save</button>
         <a href="@Url.Action("Create","Summeries")" class="btn btn-default">Next</a>
 
     </form>
 
 
 </div>
-<script>
+@*<script>
     $("#SaveButton").click(function () {
 
         $.ajax({
@@ -33,7 +34,7 @@
            $("#formModal").modal("toggle");
         });
     });
-</script>
+</script>*@
 
 
 

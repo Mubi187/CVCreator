@@ -1,21 +1,180 @@
 ﻿@model CVeator.Web.ViewModels.CVPreview
 
 <h2>CV design 1st</h2>
-
-<div class="container">
-    <h4>@Model.CV.FirstName </h4>
-    <h6>@Model.CV.Country</h6>
-    <h6>@Model.CV.Email</h6>
-    @if (Model.CV.Experiences != null && Model.CV.Experiences.Count > 0)
-    {
-        foreach (var exp in Model.CV.Experiences)
+<div align="center">
+    <h1 align="center" id="download_pdf" style="cursor:pointer;" title="Click to Download Page as PDF">
+        <span class="glyphicon glyphicon-save">Download</span>
+    </h1>
+</div>
+<div id="DivIdToPrint">
+    <div class="container">
+        <h3 class="text-capitalize">@Model.CV.FirstName @Model.CV.LastName </h3>
+        <h6 class="text-capitalize">@Model.CV.Country</h6>
+        <h6>@Model.CV.Email</h6>
+        <h6>@Model.CV.PhoneNumber</h6>
+        <h6 class="text-capitalize">@Model.CV.City</h6>
+        <h6 class="text-capitalize">@Model.CV.Address</h6>
+        <hr />
+        @if (Model.CV.Summeries != null && Model.CV.Summeries.Count > 0)
         {
-            <div>@exp.Employer</div>
-            <div>@exp.JobTitle</div>
-            <div>@exp.EndTime</div>
-            <div>@exp.StartTime</div>
+            foreach (var sum in Model.CV.Summeries)
+            {
+                @Html.Raw(HttpUtility.HtmlDecode(sum.ProfessionalSummery))
+            }
         }
-    }
+        <hr />
+        @if (Model.CV.Experiences != null && Model.CV.Experiences.Count > 0)
+        {
+            foreach (var exp in Model.CV.Experiences)
+            {
+                <h4 class="text-capitalize"><strong>@exp.Employer</strong></h4>
+                <div>@exp.JobTitle</div>
+                <div>@exp.State</div>
+                <div>@exp.StartTime</div>
+                <div>@exp.EndTime</div>
 
+            }
+        }
+        <hr />
+        @if (Model.CV.Educations != null && Model.CV.Educations.Count > 0)
+        {
+            foreach (var edu in Model.CV.Educations)
+            {
+                <h4 class="text-uppercase"><strong>@edu.SchoolName</strong></h4>
+                <div>@edu.Degree</div>
+                <div>@edu.FielOfStudy</div>
+                <div>@edu.City</div>
+                <div>@edu.State</div>
+            }
+        }
+        <hr />
+        @if (Model.CV.Skills != null && Model.CV.Skills.Count > 0)
+        {
+            foreach (var skill in Model.CV.Skills)
+            {
+                <h4 class="text-uppercase"><strong>@skill.SkillName</strong></h4>
+                <div>@skill.level</div>
+            }
+        }
+        <hr />
+        <p>
+
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type
+            specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in
+            the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+            more recently with desktop publishing software like Aldus PageMaker including
+            versions of Lorem Ipsum.
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            an unknown printer took a galley of type and scrambled it to make a type specim
+            en book. It has survived not only five centuries, but also the leap into
+            typesetting, remaining essentially unchanged. It was popularised in the 1960s w
+            ith the release of Letraset sheets containing Lorem Ipsum passages, and more rec
+            ently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+        <div>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type
+            specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in
+            the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+            more recently with desktop publishing software like Aldus PageMaker including
+            versions of Lorem Ipsum.
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            an unknown printer took a galley of type and scrambled it to make a type specim
+            en book. It has survived not only five centuries, but also the leap into
+            typesetting, remaining essentially unchanged. It was popularised in the 1960s w
+            ith the release of Letraset sheets containing Lorem Ipsum passages, and more rec
+            ently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </div>
+        <div>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type
+            specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in
+            the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+            more recently with desktop publishing software like Aldus PageMaker including
+            versions of Lorem Ipsum.
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            an unknown printer took a galley of type and scrambled it to make a type specim
+            en book. It has survived not only five centuries, but also the leap into
+            typesetting, remaining essentially unchanged. It was popularised in the 1960s w
+            ith the release of Letraset sheets containing Lorem Ipsum passages, and more rec
+            ently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </div>
+        <div>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type
+            specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in
+            the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+            more recently with desktop publishing software like Aldus PageMaker including
+            versions of Lorem Ipsum.
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            an unknown printer took a galley of type and scrambled it to make a type specim
+            en book. It has survived not only five centuries, but also the leap into
+            typesetting, remaining essentially unchanged. It was popularised in the 1960s w
+            ith the release of Letraset sheets containing Lorem Ipsum passages, and more rec
+            ently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </div>
+    </div>
 
 </div>
+<div data-html2canvas-ignore="true">
+    <button id="pdf-new"><a href="javascript:demoFromHTML()" class="button" style="color: black;">Generate PDF</a></button>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('#download_pdf').click(function () {
+            var pdf = new jsPDF('p', 'pt', 'a4')
+                , source = $('#DivIdToPrint')[0]
+                , specialElementHandlers = {
+                    '#bypassme': function (element, renderer) {
+                        return true
+                    }
+                }
+            margins = {
+                top: 60,
+                bottom: 60,
+                left: 40,
+                width: 522
+            };
+            pdf.fromHTML(
+                source
+                , margins.left
+                , margins.top
+                , {
+                    'width': margins.width
+                    , 'elementHandlers': specialElementHandlers
+                },
+                function (dispose) {
+                    pdf.save('download_pdf.pdf');
+                },
+                margins
+            )
+        });
+    });
+</script>
+<script>
+    function demoFromHTML() {
+     
+        var pdf = new jsPDF('p', 'pt', 'a4');
+        var options = {
+            background: '#fff' //background is transparent if you don't set it, which turns it black for some reason.
+        };
+        pdf.addHTML($('#DivIdToPrint')[0], options, function () {
+            pdf.save('Test.pdf');
+        });
+    }
+</script>
