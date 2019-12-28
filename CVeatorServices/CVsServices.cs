@@ -27,6 +27,7 @@ namespace CVeatorServices
         {
             CVeatorContext context = new CVeatorContext();
             return context.PersonalInfos.Find(ID);
+
         }
         public void UpdateCV(PersonalInfo personalInfo)
         {
